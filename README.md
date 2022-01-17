@@ -72,3 +72,7 @@ git stash drop <name>
 # to clear all history we can use
 git stash clear
 ```
+Apply and drop on one command:
+```
+git stash pop
+```
