@@ -14,7 +14,7 @@ Git uses a series of BLOBs and trees to store content of the working directory o
 See example:
 ```
 $ git init                   // initialize a repo
-$ echo Hallo>halo.txt        // create a file and enter some content
+$ echo Hallo>hallo.txt        // create a file and enter some content
 ```
 
 A tree is like a directory. Each commit in Git points to a tree object, which in turn references the BLOBs. A tree can recursively reference other tree objects or subtrees. Thus, a tree builds a complete hierarchy of files and subdirectories. Just like BLOBs, trees can be viewed under the “.git/objects” folder.
