@@ -6,6 +6,7 @@ Git is an Open Source Distributed Version Control System. Now that’s a lot of 
 ## Git Foundation
 
 ### 1. Data Storage
+At its core, git is like a key value store, the value = data & the key = hash of the data
 
 ### 2. Git Blobs & Trees
 Git uses a series of BLOBs and trees to store content of the working directory of a project. Whenever we perform a commit operation, Git internally creates a series of trees and BLOBs, which is the binary representation of the project folder structure at that point in time of commit.
@@ -76,3 +77,20 @@ Apply and drop on one command:
 ```
 git stash pop
 ```
+
+## References, Commits, Branches
+There are 3 types of git references
+
+**Tags & annotated tags**
+are just a simple pointer to a commit. When you create a tag with no arguments, it captures the value in HEAD
+
+**What is a branch?** 
+So a branch, it's just a pointer to a particular commit. The pointer to the current branch is going to change.
+
+**HEAD** 
+is how git knows what branch you’re currently on, and what the next parent will be.
+
+
+
+
+
