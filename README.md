@@ -87,7 +87,36 @@ So a branch, it's just a pointer to a particular commit. The pointer to the curr
 
 **HEAD** 
 is how git knows what branch you’re currently on, and what the next parent will be.
+```
+$ git checkout master
+```
+```
+$ cat .git/HEAD
+ref: refs/heads/master
+```
+```
+$ git checkout feature
+Switched to branch 'feature'
+```
+```
+$ cat .git/HEAD
+ref: refs/heads/feature
+```
 
+## Merging and Rebasing
+Merge commits are just commit, but they happen to be commits that have more than one parent. It maintains all the same commits that you had created on a future branch.
+
+### Merge Conflicts
+Attempt to merge, but files have diverged
+Git stops until the conflicts are resolved
+```
+$ git merge feature
+CONFLICT (add/add): Merge conflict in feature
+```
+### Git rerere
+Once you set rerere.enabled, it's the act of merging itself that both creates the conflicts and (because it automatically runs git rerere with no arguments) records them and then tries to re-use any existing recorded resolutions. It's the act of committing itself that records the final resolutions (because Git automatically runs git rerere again for you). So it is all automatic—you just need to make sure, by running your own git diff commands, that your previous re-used resolutions are correct. If not, just fix them files, add, and commit as usual, and Git will replace the recorded resolutions with the new ones.
+
+Note that you must still git add and git commit! You should always inspect the merge results (and/or run tests)—though you should do this always, regardless of your rerere.enabled setting.
 
 
 
